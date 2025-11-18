@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batalha Naval Multiplayer - Projeto ES2</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <h1>🚢 Batalha Naval Multiplayer</h1>
+                <span class="emoji">⚓</span>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>🎯 Sobre o Projeto</h2>
+            <p>Um jogo de batalha naval multiplayer em tempo real, onde o objetivo é afundar todos os barcos do adversário. O projeto foi desenvolvido com arquitetura cliente-servidor, proporcionando uma experiência fluida e interativa.</p>
+            
+            <h3>Como Funciona:</h3>
+            <ol>
+                <li><strong>Criar ou entrar em uma sala</strong> - Os jogadores podem criar uma nova partida ou juntar-se a uma existente</li>
+                <li><strong>Posicionar os barcos</strong> - Cada jogador define estrategicamente a posição dos seus barcos no tabuleiro</li>
+                <li><strong>Iniciar a batalha</strong> - Sistema de turnos onde os jogadores alternam entre atacar e defender</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>🚀 Tecnologias Utilizadas</h2>
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <h3>🔹 Backend</h3>
+                    <ul>
+                        <li><strong>Node.js</strong> – Ambiente de execução JavaScript</li>
+                        <li><strong>Express</strong> – Framework para criação da API REST</li>
+                        <li><strong>Socket.IO</strong> – Comunicação em tempo real</li>
+                        <li><strong>Cors</strong> – Gerenciamento de permissões de acesso</li>
+                    </ul>
+                </div>
+                
+                <div class="tech-card">
+                    <h3>🔹 Frontend</h3>
+                    <ul>
+                        <li><strong>React</strong> – Biblioteca para construção da interface</li>
+                        <li><strong>Vite</strong> – Ambiente de desenvolvimento rápido</li>
+                        <li><strong>React Router</strong> – Navegação entre telas</li>
+                        <li><strong>Socket.IO Client</strong> – Comunicação em tempo real</li>
+                        <li><strong>Tailwind CSS</strong> – Framework de estilização</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>📌 Funcionalidades</h2>
+            
+            <h3>Backend</h3>
+            <ul class="features-list">
+                <li>Criar e entrar em salas de jogo</li>
+                <li>Gerenciamento de usuários conectados em cada sala</li>
+                <li>Emissão e escuta de eventos via Socket.IO (ataque, resposta, vitória, derrota)</li>
+                <li>API REST para criação/listagem de salas</li>
+            </ul>
+
+            <h3>Frontend</h3>
+            <ul class="features-list">
+                <li>Criar uma sala ou entrar em uma já existente</li>
+                <li>Definir a posição dos barcos no tabuleiro</li>
+                <li>Sistema de turnos (atacar e aguardar ataque do oponente)</li>
+                <li>Feedback visual de acertos e erros</li>
+                <li>Indicação de vitória ou derrota ao afundar todos os barcos</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>👥 Equipe de Desenvolvimento</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <strong>Nathália Cericatto</strong>
+                    <span>RA: 12924110993</span>
+                </div>
+                <div class="team-member">
+                    <strong>Luiz Filipe de Lima Ávila</strong>
+                    <span>RA: 1291419212</span>
+                </div>
+                <div class="team-member">
+                    <strong>Miqueias Allisson Freire Galdino</strong>
+                    <span>RA: 1292414297</span>
+                </div>
+                <div class="team-member">
+                    <strong>Gabriel Machado de Matos</strong>
+                    <span>RA: 1292326181</span>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>🧪 Testes</h2>
+            
+            <h3>Casos de Teste:</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Módulo</th>
+                        <th>Caso de Teste</th>
+                        <th>Justificativa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>T01</td>
+                        <td>Backend - API</td>
+                        <td>Criar sala via POST /rooms</td>
+                        <td>Essencial para iniciar o fluxo do jogo</td>
+                    </tr>
+                    <tr>
+                        <td>T02</td>
+                        <td>Backend - WS</td>
+                        <td>Conectar usuário a uma sala (joinRoom)</td>
+                        <td>Valida a entrada e sincronização de jogadores</td>
+                    </tr>
+                    <tr>
+                        <td>T03</td>
+                        <td>Backend - WS</td>
+                        <td>Enviar ataque (attack)</td>
+                        <td>Core da mecânica do jogo</td>
+                    </tr>
+                    <tr>
+                        <td>T04</td>
+                        <td>Backend - WS</td>
+                        <td>Vitória do jogador</td>
+                        <td>Valida condição de término do jogo</td>
+                    </tr>
+                    <tr>
+                        <td>T05</td>
+                        <td>Frontend - Jogo</td>
+                        <td>Posicionar barcos</td>
+                        <td>Etapa crítica antes da batalha começar</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Resultados dos Testes:</h3>
+            <ul>
+                <li><strong>T01 (Criar sala):</strong> Não foi possível realizar os testes de caixa preta</li>
+                <li><strong>T02 (Conectar usuário):</strong> Podem ser conectados até 2 usuários. Equivalência: 2 são válidos; Fronteira: 1 e 3 não são válidos</li>
+                <li><strong>T03 (Enviar ataque):</strong> Não foi possível realizar os testes de caixa preta</li>
+                <li><strong>T04 (Vitória):</strong> Não foi possível realizar os testes de caixa preta. O jogador só ganha depois de acertar as 10 posições do inimigo</li>
+                <li><strong>T05 (Posicionar barcos):</strong> Não foi possível realizar os testes de caixa preta. O jogo não inicia até as 20 posições serem preenchidas</li>
+            </ul>
+
+            <div class="strategy-box">
+                <h3>🤖 Estratégia de Testes:</h3>
+                <ul>
+                    <li>Testes Automatizados</li>
+                    <li>Testes de Sistema</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2>🔧 Versionamento</h2>
+            <p>O projeto segue boas práticas de versionamento utilizando Git e GitHub. A estratégia adotada foi:</p>
+            
+            <ul>
+                <li><strong>Branch principal (main):</strong> Contém apenas código estável e testado</li>
+                <li><strong>Pull Requests obrigatórios:</strong> Toda alteração passa por revisão antes de ser integrada</li>
+                <li><strong>Branches de feature:</strong> Cada nova funcionalidade é desenvolvida em uma branch separada</li>
+                <li><strong>Commits descritivos:</strong> Mensagens claras que explicam as mudanças realizadas</li>
+            </ul>
+
+            <p><strong>Referências:</strong></p>
+            <ul>
+                <li>Pull Requests realizados</li>
+                <li>Commits da branch main</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>🚀 Execução do Projeto</h2>
+            
+            <div class="execution-steps">
+                <h3>Instruções para execução local:</h3>
+                <p>Siga o passo a passo fornecido no repositório do GitHub para:</p>
+                <ol>
+                    <li>Clonar o repositório</li>
+                    <li>Instalar as dependências do backend e frontend</li>
+                    <li>Configurar as variáveis de ambiente</li>
+                    <li>Executar o servidor backend</li>
+                    <li>Executar a aplicação frontend</li>
+                    <li>Rodar os testes automatizados</li>
+                </ol>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <h2>🌐 Acesse o Projeto</h2>
+            <p>Confira o código-fonte e a documentação completa no GitHub</p>
+            <a href="https://github.com/Nathuyy/A3-Qualidade-de-Software" target="_blank" class="github-link">📁 Repositório no GitHub</a>
+            <p style="margin-top: 2rem; color: #666;">Projeto desenvolvido para a disciplina de Engenharia de Software II</p>
+        </div>
+    </footer>
+</body>
+</html>
